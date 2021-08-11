@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const searchHandler = async(req, res) => {
 
-  const searchResults = await axios.get('https://content.guardianapis.com/search', {
+  const searchResults = await axios.get('https://content.guardianapis.com/search?', {
     params: {
       'api-key': process.env.GUARDIAN_API_KEY,
     }
