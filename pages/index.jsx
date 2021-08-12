@@ -8,7 +8,8 @@ import axios from 'axios';
 const IndexPage = () => {
   const [term, setTerm] = useState('');
   const [results, setResults] = useState([]);
-  // let url = ['https://content.guardianapis.com/search?']
+  // let url = 'https://content.guardianapis.com/search?';
+  // let api = '7013a784-5b58-43ed-9a6c-ae43d6780dd2';
 
   const doSearch = async () => {
     const resultSet = await axios.get("/api/search", {
@@ -19,7 +20,7 @@ const IndexPage = () => {
 
     })
     setResults(resultSet.data);
-    
+
 
   }
   // console.log(setResults)
@@ -27,9 +28,9 @@ const IndexPage = () => {
 
 
   return (
-    <div style={{backgroundColor: "navy"}}>
-      <h1 style={{color: "beige", textAlign: "center", fontFamily: "Sans-Serif"}}>Guardian Search</h1>
-      <div style={{textAlign: "center"}}>
+    <div style={{ backgroundColor: "navy" }}>
+      <h1 style={{ color: "beige", textAlign: "center", fontFamily: "Sans-Serif" }}>Guardian Search</h1>
+      <div style={{ textAlign: "center" }}>
         <input
 
           value={term}
@@ -37,20 +38,20 @@ const IndexPage = () => {
         <button onClick={() => doSearch(term)}>Search</button>
       </div>
       <div>
-        <h2 style={{color: "beige", textAlign: "center", fontFamily: "Sans-Serif"}}>Results</h2>
-        <div id="card" style={{padding: "10px 20px", textAlign: "center", color: "pink"}}>
-          <div id="container" style={{display: "grid", padding: "10px 20px", textAlign:"center", color: "white", backgroundColor: "beige", }}>
-          <ul>
-          {results.map(result => {
-            return <card style={{margin: "10px", padding: "10px", display: "inline-grid", gridAutoColumns: "200px", gridAutoRows: "200px", direction: "row", border: "solid navy", textAlign: "center"}}>
-              <li style={{textAlign: "center", listStyleType: "none", textDecoration: "none"}}>
-                <a style={{color: "navy", fontWeight: "bold", fontStyle: "italic", lineHeight: "25px", alignItems: "center", textDecoration: "none", fontSize: "1rem", fontFamily: "Sans-Serif"}} href={result.url}>{result.title}
-                </a>
-                </li>
+        <h2 style={{ color: "beige", textAlign: "center", fontFamily: "Sans-Serif" }}>Results</h2>
+        <div id="card" style={{ padding: "10px 20px", textAlign: "center", color: "pink" }}>
+          <div id="container" style={{ display: "grid", padding: "10px 20px", textAlign: "center", color: "white", backgroundColor: "beige", }}>
+            <ul>
+              {results.map(result => {
+                return <card style={{ margin: "10px", padding: "10px", display: "inline-grid", gridAutoColumns: "200px", gridAutoRows: "200px", direction: "row", border: "solid navy", textAlign: "center" }}>
+                  <li style={{ textAlign: "center", listStyleType: "none", textDecoration: "none" }}>
+                    <a style={{ color: "navy", fontWeight: "bold", fontStyle: "italic", lineHeight: "25px", alignItems: "center", textDecoration: "none", fontSize: "1rem", fontFamily: "Sans-Serif" }} href={result.url}>{result.title}{(new Date (result.publicationDate)).toLocaleDateString()}
+                    </a>
+                  </li>
                 </card>
-          })}
-        </ul>
-        </div>
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

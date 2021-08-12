@@ -5,6 +5,7 @@ const searchHandler = async(req, res) => {
   const searchResults = await axios.get('https://content.guardianapis.com/search?', {
     params: {
       'api-key': process.env.GUARDIAN_API_KEY,
+      q: req.query.term
     }
   })
 
@@ -12,6 +13,7 @@ const searchHandler = async(req, res) => {
     return {
       title: result.webTitle,
       url: result.webUrl,
+      publicationDate: result.webPublicationDate
     }
   })
 

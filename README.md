@@ -18,7 +18,7 @@ There is no expectation to get through all, or even most of these, but if you fe
 
 * All of the app is in one component in index.jsx, which is a bit weird. It would be good to start refactoring the app into separate components for reusability/maintainability. Make a top level components folder and start extracting individual components into there.
 * We don't like that you can submit an empty search field. Please make it so that it won't search until you've typed something in.
-* Oh and also, we should probably stop people hitting submit again until the last result has been displayed. Even better if it can show a 'loading...' message or [spinner](https://loading.io/) while it loads.
+* Oh and also, we should probably stop people hitting submit again until the last result has been displayed. Even better if it can show a 'loading...' message or [spinner](https://loading.io/) while it loads. 
 * Add some styling. The design team would like to see the results be a grid of cards rather than just a text list. Would be good to tidy up the styling generally as well, make it look nice.
 * The API won't return an image we can use for the article - any ideas how we could get around this or what we could do instead?
 * Can you include the publication date in the result listing? In brackets after the link title, like  
